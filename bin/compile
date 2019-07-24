@@ -20,6 +20,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
+NIM_VER=0.20.2
 NIM_DIR=$CACHE_DIR/Nim
 NIM_BIN=$NIM_DIR/bin/nim
 
@@ -34,15 +35,20 @@ export PATH
 # EOF
 
 if [ ! -x $NIM_BIN ]; then
-    nim_repo=$(cat_or $ENV_DIR/NIM_REPO "git://github.com/nim-lang/Nim.git")
-    nim_branch=$(cat_or $ENV_DIR/NIM_BRANCH "master")
+    # nim_repo=$(cat_or $ENV_DIR/NIM_REPO "git://github.com/nim-lang/Nim.git")
+    # nim_branch=$(cat_or $ENV_DIR/NIM_BRANCH "master")
 
-    echo "Installing Nim..." | arrow
+    # echo "Installing Nim..." | arrow
 
-    git clone --depth 1 --branch $nim_branch $nim_repo $NIM_DIR
+    # git clone --depth 1 --branch $nim_branch $nim_repo $NIM_DIR
+    # cd $NIM_DIR
+    # sh build_all.sh
+    # echo "using ${nim_repo} @${nim_branch}" | indent
+
+    mkdir $NIM_DIR
     cd $NIM_DIR
-    sh build_all.sh
-    echo "using ${nim_repo} @${nim_branch}" | indent
+    wget https://nim-lang.org/download/nim-$NIM_VER-linux_x64.tar.xz
+    tar -xf nim-$NIM_VER-linux_x64.tar.xz
 fi
 
 echo "Building app" | arrow
