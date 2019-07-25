@@ -35,6 +35,7 @@ If you want to use an specific Nim version use the `NIM_BRANCH` environment vari
 heroku config:set NIM_BRANCH=devel
 ```
 
+**Note by OMF: This won't work in this fork due to the changes I made to install Nim from the binary release tarballs.**
 
 Example
 -------
