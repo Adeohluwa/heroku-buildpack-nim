@@ -20,33 +20,14 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
 
-#NIM_VER=0.20.2
-#NIM_DIR=$CACHE_DIR/Nim
-#NIM_CACHE_DIR=$CACHE_DIR/nimcache
-#NIM_BIN=$NIM_DIR/bin/nim
-
-#NIMBLE_BIN=$NIM_DIR/bin/nimble
-
+export CHOOSENIM_CHOOSE_VERSION="1.0.4"
 #PATH="$NIM_DIR/bin:$PATH"
 #export PATH
 
-#echo "Setting up link to nim cache..."
-#mkdir -p $NIM_CACHE_DIR
-#mkdir -p $HOME/.cache
-#ln -s $NIM_CACHE_DIR $HOME/.cache/nim
-
-#echo "Setting up nimble.ini and .nimble dir..."
-#mkdir -p $CACHE_DIR/.nimble
-#mkdir -p $HOME/.config/nimble
-#cat > $HOME/.config/nimble/nimble.ini <<EOF
-#nimbleDir = "$CACHE_DIR/.nimble"
-#EOF
 
 if true; then
     echo "Installing Nim via choosenim"
-    curl https://nim-lang.org/choosenim/init.sh -sSf | sh
+    curl https://nim-lang.org/choosenim/init.sh -sSf > init.sh
+    sh init.sh -y
+    export PATH=$HOME/.nimble/bin:$PATH
 fi
-
-#echo "Building app" | arrow
-#cd $BUILD_DIR
-#$NIMBLE_BIN build --accept
