@@ -21,8 +21,16 @@ CACHE_DIR=$2
 ENV_DIR=$3
 
 export CHOOSENIM_CHOOSE_VERSION="1.0.4"
-#PATH="$NIM_DIR/bin:$PATH"
-#export PATH
+PATH="$NIM_DIR/bin:$PATH"
+export PATH
+
+NIM_DIR=$CACHE_DIR/.nimble
+NIM_CACHE_DIR=$CACHE_DIR/nimcache
+NIMBLE_BIN=$NIM_DIR/bin/.nimble
+
+
+PATH="$NIM_DIR/bin:$PATH"
+export PATH
 
 
 if true; then
