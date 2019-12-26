@@ -31,7 +31,6 @@ if true; then
     sh init.sh -y
     export PATH=$HOME/.nimble/bin:$PATH
     choosenim stable
-    echo "export PATH=/app/.nimble/bin:$PATH" > ~/.bashrc
+    echo 'export PATH=/app/.nimble/bin:$PATH' > ~/.bashrc
     source ~/.bashrc
-    nim -v
 fi
